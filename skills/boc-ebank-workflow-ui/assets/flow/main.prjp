@@ -1,0 +1,598 @@
+{
+    "engine": "python",
+    "id": "28a1732d-657f-484c-8ef0-0d3ccfa52333",
+    "name": "中国银行_Google",
+    "type": "flow",
+    "build": "",
+    "version": "2.1.0.260904",
+    "flow": [
+        {
+            "id": "start",
+            "rect": {
+                "x": 542,
+                "y": 174,
+                "width": 140,
+                "height": 50
+            },
+            "type": "begin",
+            "next": {
+                "refId": "c52ba923-8759-41a4-9bba-cb992f34943d",
+                "vertices": []
+            },
+            "caption": "流程开始"
+        },
+        {
+            "type": "py_task",
+            "id": "c52ba923-8759-41a4-9bba-cb992f34943d",
+            "rect": {
+                "x": 478,
+                "y": 275,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "e84b5258-6951-4115-a1e9-d5de88c215e3",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+                "vertices": []
+            },
+            "file": "配置_运行方案.py",
+            "caption": "配置_运行方案",
+            "desc": "设置启动日志，并通过use_*选择可选HUB、密码输入器、会话、业务、交付和收尾实现",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "e84b5258-6951-4115-a1e9-d5de88c215e3",
+            "rect": {
+                "x": 478,
+                "y": 396,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "597e84fb-98c9-4eb7-9e39-4861d3981b06",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+                "vertices": [
+                    {
+                        "x": 840,
+                        "y": 314
+                    }
+                ]
+            },
+            "file": "接入_任务数据.py",
+            "caption": "接入_任务数据",
+            "desc": "读取Asset、可选XTS配置和队列任务，并应用正式运行日志级别",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "597e84fb-98c9-4eb7-9e39-4861d3981b06",
+            "rect": {
+                "x": 478,
+                "y": 525,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "7f71f584-0138-4f12-b5af-57f6bd6de757",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+                "vertices": []
+            },
+            "file": "框架_环境初始化.py",
+            "caption": "框架_环境初始化",
+            "desc": "建立任务、账户和业务结果结构",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "7f71f584-0138-4f12-b5af-57f6bd6de757",
+            "rect": {
+                "x": 478,
+                "y": 655,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "6d0d9985-4468-4d94-aa1d-c82b72d098db",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+                "vertices": [
+                    {
+                        "x": 840,
+                        "y": 314
+                    }
+                ]
+            },
+            "file": "框架_登录判断.py",
+            "caption": "框架_登录判断",
+            "desc": "组织登录参数并控制登录重试",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "6d0d9985-4468-4d94-aa1d-c82b72d098db",
+            "rect": {
+                "x": 478,
+                "y": 790,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "b8e1e0df-d695-48c5-b4db-df3085b26c0a",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "",
+                "vertices": []
+            },
+            "file": "框架_业务调度.py",
+            "caption": "框架_业务调度",
+            "desc": "按任务配置调度已选择的网银业务",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "b8e1e0df-d695-48c5-b4db-df3085b26c0a",
+            "rect": {
+                "x": 858,
+                "y": 790,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "41517a2e-21a6-40d8-be2d-0bdc917eeb5f",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "854d42e2-4d80-42ed-9cfb-8699e96e99aa",
+                "vertices": []
+            },
+            "file": "框架_交付调度.py",
+            "caption": "框架_交付调度",
+            "desc": "按照运行方案配置依次执行交付模块",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "if",
+            "id": "41517a2e-21a6-40d8-be2d-0bdc917eeb5f",
+            "rect": {
+                "x": 1546,
+                "y": 603,
+                "width": 120,
+                "height": 120
+            },
+            "caption": "异常？",
+            "language": "Python",
+            "expression": "GlobalVariables[\"ebank\"].run.has_error or GlobalVariables[\"ebank\"].run.has_delivery_error",
+            "yes": {
+                "refId": "854d42e2-4d80-42ed-9cfb-8699e96e99aa",
+                "vertices": []
+            },
+            "no": {
+                "refId": "37952491-6291-4353-b809-3f546cba3523",
+                "vertices": []
+            }
+        },
+        {
+            "type": "if",
+            "id": "854d42e2-4d80-42ed-9cfb-8699e96e99aa",
+            "rect": {
+                "x": 1244,
+                "y": 603,
+                "width": 120,
+                "height": 120
+            },
+            "caption": "重试？",
+            "language": "Python",
+            "expression": "GlobalVariables[\"ebank\"].run.retry_count < GlobalVariables[\"ebank\"].run.max_retry_count and not GlobalVariables[\"ebank\"].run.has_delivery_error",
+            "yes": {
+                "refId": "9e42c9cc-044a-4f02-95b7-056426115400",
+                "vertices": [
+                    {
+                        "x": 1032,
+                        "y": 663
+                    }
+                ]
+            },
+            "no": {
+                "refId": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+                "vertices": []
+            }
+        },
+        {
+            "type": "py_task",
+            "id": "9e42c9cc-044a-4f02-95b7-056426115400",
+            "rect": {
+                "x": 858,
+                "y": 525,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "597e84fb-98c9-4eb7-9e39-4861d3981b06",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "",
+                "vertices": []
+            },
+            "file": "框架_重试计次.py",
+            "caption": "框架_重试计次",
+            "desc": "增加整轮重试次数并复位异常状态",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "37952491-6291-4353-b809-3f546cba3523",
+            "rect": {
+                "x": 1472,
+                "y": 396,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "a5dd4e69-894e-4e69-aa43-161d14c2f161",
+                "vertices": []
+            },
+            "exception": {
+                "refId": "",
+                "vertices": []
+            },
+            "file": "框架_正常结束处理.py",
+            "caption": "框架_正常结束处理",
+            "desc": "执行正常收尾模块，并保证释放全部活动资源",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "de738ff4-9817-4ae9-bfa9-579e69eb5a8f",
+            "rect": {
+                "x": 1170,
+                "y": 275,
+                "width": 268,
+                "height": 78
+            },
+            "next": {
+                "refId": "a5dd4e69-894e-4e69-aa43-161d14c2f161",
+                "vertices": []
+            },
+            "exception": {},
+            "file": "框架_异常结束处理.py",
+            "caption": "框架_异常结束处理",
+            "desc": "执行异常收尾和最终清理，并重新抛出原始异常",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "end",
+            "id": "a5dd4e69-894e-4e69-aa43-161d14c2f161",
+            "rect": {
+                "x": 1536,
+                "y": 289,
+                "width": 140,
+                "height": 50
+            },
+            "caption": "流程结束"
+        },
+        {
+            "type": "py_task",
+            "id": "8374bbaf-e5fd-42af-849a-d43f85ea6e18",
+            "rect": {
+                "x": 858,
+                "y": 160,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "公共_网银能力.py",
+            "caption": "公共_网银能力",
+            "desc": "未连线维护节点；实际能力通过具名函数调用",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "2939e5d6-1269-42a1-b662-ea5751efc3e2",
+            "rect": {
+                "x": 1170,
+                "y": 160,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "公共_数据契约.py",
+            "caption": "公共_数据契约",
+            "desc": "未连线维护节点；用Pydantic定义配置、任务、账号、运行状态和模块边界",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "94a1f1df-ff46-44aa-8ab7-e0d7a3cb194d",
+            "rect": {
+                "x": 144,
+                "y": 461,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "会话_登录.py",
+            "caption": "会话_登录",
+            "desc": "未连线会话实现；由框架通过use_login选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "61665c16-8899-43e9-bc57-32761956d066",
+            "rect": {
+                "x": 142,
+                "y": 1049,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "会话_网银安全退出.py",
+            "caption": "会话_网银安全退出",
+            "desc": "未连线会话实现；由框架通过use_logout选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "87c6d7a3-e731-474c-9910-c2d3bfea33f4",
+            "rect": {
+                "x": 144,
+                "y": 655,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "交付_流水数据转换.py",
+            "caption": "交付_流水数据转换",
+            "desc": "未连线交付实现；将流水文件转换为指定模板格式",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "53c125a8-1f5f-4bc9-a1c8-a0e024d9e647",
+            "rect": {
+                "x": 1790,
+                "y": 511,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "收尾_执行结果汇总.py",
+            "caption": "收尾_执行结果汇总",
+            "desc": "未连线收尾实现；正常和异常结束均可创建并写入汇总表",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "34655358-01aa-41e3-bad1-2440a962e427",
+            "rect": {
+                "x": 1790,
+                "y": 275,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "收尾_密码错误处置.py",
+            "caption": "收尾_密码错误处置",
+            "desc": "未连线异常收尾实现；仅在密码错误时停用U盾任务并通知运维",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "69f1e145-98f7-4e4d-bef4-f7795bac0f01",
+            "rect": {
+                "x": 1790,
+                "y": 396,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "收尾_异常邮件通知.py",
+            "caption": "收尾_异常邮件通知",
+            "desc": "未连线异常收尾实现；发送任务、账号和登录状态通知邮件",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "d5021a38-bdf4-4645-9c9e-3e2796c974bf",
+            "rect": {
+                "x": 144,
+                "y": 559,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "业务_流水查询和下载.py",
+            "caption": "业务_流水查询和下载",
+            "desc": "未连线业务实现；由框架通过use_business选择",
+            "breakpoints": {
+                "129": null
+            },
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "f370c341-0c7c-41fe-b48e-63728106bebd",
+            "rect": {
+                "x": 144,
+                "y": 752,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "业务_余额查询.py",
+            "caption": "业务_余额查询",
+            "desc": "未连线业务实现；由框架通过use_business选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "c1ef0d97-faf4-457b-924f-184eaec6ad70",
+            "rect": {
+                "x": 144,
+                "y": 853,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "业务_回单查询和下载.py",
+            "caption": "业务_回单查询和下载",
+            "desc": "未连线业务实现；由框架通过use_business选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "b6e0dcc5-966f-43fa-a807-4d392abea3de",
+            "rect": {
+                "x": 144,
+                "y": 951,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "业务_对账单查询和下载.py",
+            "caption": "业务_对账单查询和下载",
+            "desc": "未连线业务实现；由框架通过use_business选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "694e5065-546b-4169-9ac6-a5d093d5fb09",
+            "rect": {
+                "x": 144,
+                "y": 1149,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "业务_其它.py",
+            "caption": "业务_其它",
+            "desc": "未连线可选业务节点；默认不启用",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "8ca8e267-5fda-4acb-afbe-51359bf56bda",
+            "rect": {
+                "x": 142,
+                "y": 174,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "HUB_新同事.py",
+            "caption": "HUB_新同事",
+            "desc": "未连线可选设备实现；由框架通过use_hub选择，省略表示设备直连",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "ebcbb90d-dc48-4530-a26f-e31d20914d24",
+            "rect": {
+                "x": 144,
+                "y": 363,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "密码输入器_KeyBox.py",
+            "caption": "密码输入器_KeyBox",
+            "desc": "未连线密码输入器实现；通过use_password_input_device选择",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "cbbb5aaf-3d47-4cd9-9394-a45b6d0413e6",
+            "rect": {
+                "x": 144,
+                "y": 268,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "密码输入器_新同事.py",
+            "caption": "密码输入器_新同事",
+            "desc": "未连线候选密码输入器实现；默认不启用",
+            "breakpoints": {},
+            "viewMode": "normal"
+        },
+        {
+            "type": "py_task",
+            "id": "6f9a2c71-3b0d-4e8a-9c14-7d2e5a8f10b3",
+            "rect": {
+                "x": 1170,
+                "y": 26,
+                "width": 268,
+                "height": 78
+            },
+            "next": {},
+            "exception": {},
+            "file": "公共_网银页面操作.py",
+            "caption": "公共_网银页面操作",
+            "desc": "未连线维护节点；提供中行BFE日历面板等独立JS页面操作函数",
+            "breakpoints": {},
+            "viewMode": "normal"
+        }
+    ],
+    "variables": [
+        {
+            "type": "none",
+            "name": "ebank",
+            "value": "{}"
+        }
+    ],
+    "platform": "windows_x64",
+    "caption": "",
+    "viewMode": "normal"
+}
